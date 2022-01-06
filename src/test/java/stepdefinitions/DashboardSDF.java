@@ -36,4 +36,35 @@ public class DashboardSDF {
         this.dashboardPOM.waitForListToAddItem();
         Assertions.assertTrue(this.dashboardPOM.isItemPresent("grape"));
     }
+
+
+    @When("a user clicks on an item")
+    public void a_user_clicks_on_an_item() {
+        // Write code here that turns the phrase above into concrete actions
+        Assertions.assertTrue(this.dashboardPOM.clickItemGivenName("milk"));
+    }
+    @Then("the item will toggle in cart")
+    public void the_item_will_toggle_in_cart() {
+        Assertions.assertTrue(this.dashboardPOM.isItemInCart("milk"));
+    }
+
+    @When("a user clicks the delete button on an item")
+    public void a_user_clicks_the_delete_button_on_an_item() {
+        Assertions.assertTrue(this.dashboardPOM.clickDeleteBtn("grape"));
+    }
+    @Then("the item will be removed from the list")
+    public void the_item_will_be_removed_from_the_list() {
+        this.dashboardPOM.waitForListToRemoveItem();
+        Assertions.assertFalse(this.dashboardPOM.isItemPresent("grape"));
+    }
+
+    @When("a user clicks the Check Out Button")
+    public void a_user_clicks_the_check_out_button() {
+        // Write code here that turns the phrase above into concrete actions
+        this.dashboardPOM.clickCheckOutBtn();
+    }
+    @Then("all in cart items will be removed")
+    public void all_in_cart_items_will_be_removed() {
+        Assertions.assertFalse(this.dashboardPOM.isCheckoutBtnVisible());
+    }
 }

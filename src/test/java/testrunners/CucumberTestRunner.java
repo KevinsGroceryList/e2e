@@ -11,5 +11,4 @@ import org.junit.runner.RunWith;
         dryRun = false, //dry run verifies that there is a step definition for each step
         plugin = {"pretty", "html:target/cucumber.html"} //can out put results to an html file
 )
-public class CucumberTestRunner {
-}
+public class CucumberTestRunner { }
